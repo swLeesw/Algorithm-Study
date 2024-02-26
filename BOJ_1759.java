@@ -4,7 +4,7 @@ import java.util.*;
 public class BOJ_1759 {
 	static int L, C, com[];
 	static char arr[];
-	static boolean visited[];
+	static boolean visited[];//팀 나누는 배열
 	
 	static void comb(int r, int c, int mo, int ja) {
 		if (c == L) {
