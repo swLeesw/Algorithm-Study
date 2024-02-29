@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_2470 { //백준 2470 두 용액 - 60분
-	
 	//이분탐색 풀이 이해를 못해서 어쩔 수 없이 투포인터로 해결
     
     public static void main(String[] args) throws IOException {
