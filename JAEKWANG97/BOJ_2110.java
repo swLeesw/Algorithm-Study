@@ -1,52 +1,54 @@
-package backjoon;
+package backjoon.algoQueue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_2110 {
     public static void main(String[] args) throws IOException {
-        // 각각의 집의 좌표가 주어짐
-        // 집에 공유기 C개를 설치해야함
-        // 최대한 많은 곳에서 와이파이 사용 --> 한집에는 공유기 하나
-        // 인접한 두 공유기 사이의 거리를 가능한 크게 하여 설치
-        // C개의 공유기를 N개의 집에 적당히 설치, 가장 인접한 두 공유기 사이의 거리를 최대호 하는 프로그램
-        // N 집의 개수 , C 공유기 개수
-        // 집의 좌표
-        //5 3
-        //1
-        //2
-        //8
-        //4
-        //9
-        // 공유기를 1,4,8 또는 1,4,9,에 설치하면 가장 인접한 두 공유기의 사이의 거리는 3임
-        // 이 거리보다 크게 공유기를 3개 설치할 수 없음
-        // 1 2 4 8 9
-        // 최대한 사이 범위 가 큰 C개를 고르는 작업
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int n = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
-        List<Integer> list = new ArrayList<>();
-        int max;
-        int min;
+
+        long[] houses = new long[n];
 
         for (int i = 0; i < n; i++) {
-            int item = Integer.parseInt(br.readLine());
-            list.add(item);
+            houses[i] = Integer.parseInt(br.readLine());
         }
 
-        Collections.sort(list);
-        max = list.getLast();
-        min = list.getFirst();
-        int answer = Integer.MAX_VALUE;
-        // 1 2 4 8 9 
+        Arrays.sort(houses);
 
-        System.out.println(answer);
+        long left = 1; // 가능한 최소 거리
+        long right = houses[n - 1] - houses[0]; // 가능한 최대 거리
+        long maxDistance = 0;
+
+        while (left <= right) {
+            long mid = (left + right) / 2; // 중간값을 기준으로 설정
+            long lastInstalled = houses[0]; // 첫 번째 집에 공유기 설치
+            int count = 1;
+
+            // 다음 공유기 설치 가능 여부 확인
+            for (int i = 1; i < n; i++) {
+                if (houses[i] - lastInstalled >= mid) {
+                    count++;
+                    lastInstalled = houses[i];
+                }
+            }
+
+            // C개 이상의 공유기를 설치할 수 있는 경우, 거리 증가
+            if (count >= c) {
+                left = mid + 1;
+                maxDistance = mid; // 최대 거리 갱신
+            } else { // 그렇지 않은 경우, 거리 감소
+                right = mid - 1;
+            }
+        }
+
+        System.out.println(maxDistance);
     }
+
 }
