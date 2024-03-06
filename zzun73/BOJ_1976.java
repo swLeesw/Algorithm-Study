@@ -1,9 +1,7 @@
-package basic;
-
 import java.io.*;
 import java.util.*;
 
-public class Main_1976_남혁준 {
+public class BOJ_1976 {
 	static int[] root;
 
 	static void init() {
