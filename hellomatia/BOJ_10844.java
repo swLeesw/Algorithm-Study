@@ -2,13 +2,13 @@ package hellomatia;
 
 import java.io.*;
 
-public class BOJ_19844 {
+public class BOJ_10844 {
 
     int N;
     long[][] dp;
 
     public static void main(String[] args) throws IOException {
-        new BOJ_19844().solution();
+        new BOJ_10844().solution();
     }
 
     private void solution() throws IOException {
