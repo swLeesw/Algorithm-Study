@@ -3,17 +3,18 @@ package hellomatia;
 import java.io.*;
 import java.util.*;
 
-class Point {
-    int x;
-    int y;
-
-    Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-
 public class BOJ_2589 {
+
+    class Point {
+        int x;
+        int y;
+
+        Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     int[] dirR = {0, 0, 1, -1};
     int[] dirC = {1, -1, 0, 0};
     int row, col;
