@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//전역으로 바꾸기
 vector<vector<int>> users;
 int usersSize;//유저 총 몇명
 vector<int> emoticons;
