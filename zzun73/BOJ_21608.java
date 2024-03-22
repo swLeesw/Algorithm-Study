@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-
 public class BOJ_21608 {
     static int N;
     static int[][] map;
@@ -23,7 +22,7 @@ public class BOJ_21608 {
         public int compareTo(Student o) {
             if (this.like == o.like) {
                 if (this.blank == o.blank) {
-                    if (this.x == o.y) {
+                    if (this.x == o.x) {
                         return this.y - o.y;
                     }
                     return this.x - o.x;
@@ -90,11 +89,11 @@ public class BOJ_21608 {
                     }
                 }
                 if (likeCount > 0) {
-                    answer += Math.pow(10, likeCount - 1);
+                    answer += (int) Math.pow(10, likeCount - 1);
                 }
             }
-
         }
+
         return answer;
     }
 
@@ -117,8 +116,6 @@ public class BOJ_21608 {
             Student position = getPosition(num);
             map[position.x][position.y] = num;
         }
-
-
         bw.write(String.valueOf(calcAnswer()));
 
         br.close();
