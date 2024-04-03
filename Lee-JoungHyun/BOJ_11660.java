@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+<<<<<<< HEAD
+=======
 import java.util.Arrays;
+>>>>>>> 1dcc6c63031b04a801691e4261138e4ac1a99ee2
 import java.util.StringTokenizer;
 
 public class BOJ_11660 {
@@ -32,6 +35,13 @@ public class BOJ_11660 {
             int ans = map[y2][x2] - map[y1 - 1][x2] - map[y2][x1 - 1] + map[y1 - 1][x1 - 1];
             sb.append(ans).append("\n");
         }
+<<<<<<< HEAD
+
         System.out.println(sb);
     }
 }
+=======
+        System.out.println(sb);
+    }
+}
+>>>>>>> 1dcc6c63031b04a801691e4261138e4ac1a99ee2
