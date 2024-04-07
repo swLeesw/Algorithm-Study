@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Main { 
     public static final int MAX_N = 31;
     public static final int MAX_L = 41;
 
