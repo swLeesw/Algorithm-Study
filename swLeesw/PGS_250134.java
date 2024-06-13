@@ -9,6 +9,11 @@ class Solution {
             this.y = y;
             this.x = x;
         }
+        
+        public boolean isEqual(Pos cmp) {
+            return this.y == cmp.y && this.x == cmp.x;
+        }
+        
     }
     
     static int maze[][], n, m, visited[][][], answer = Integer.MAX_VALUE;
@@ -50,7 +55,7 @@ class Solution {
     }
     
     static void dfs(Pos rPos, Pos bPos, int cnt) {
-        if (rPos.y == re.y && rPos.x == re.x && bPos.y == be.y && bPos.x == be.x) {
+        if ((rPos.isEqual(re)) && (bPos.isEqual(be))) {
             answer = Math.min(answer, cnt);
             return;
         }
@@ -59,7 +64,7 @@ class Solution {
         visited[bPos.y][bPos.x][1] = cnt;
 
         
-        if (!(rPos.y == re.y && rPos.x == re.x) && !(bPos.y == be.y && bPos.x == be.x)) {//둘 다 아님
+        if (!(rPos.isEqual(re)) && !(bPos.isEqual(be))) {//둘 다 아님
             for (int i = 0; i < 4; i++) {
                 int rny = rPos.y + dy[i];
                 int rnx = rPos.x + dx[i];
@@ -77,7 +82,7 @@ class Solution {
 
                 }
             }
-        } else if ((rPos.y == re.y && rPos.x == re.x) && !(bPos.y == be.y && bPos.x == be.x)) { //red완료
+        } else if ((rPos.isEqual(re)) && !(bPos.isEqual(be))) { //red완료
             
             for (int i = 0; i < 4; i++) {
                 int bny = bPos.y + dy[i];
@@ -92,7 +97,7 @@ class Solution {
                 
             }
             
-        } else if (!(rPos.y == re.y && rPos.x == re.x) && (bPos.y == be.y && bPos.x == be.x)) { //blue완료
+        } else if (!(rPos.isEqual(re)) && (bPos.isEqual(be))) { //blue완료
             
             for (int i = 0; i < 4; i++) {
                 int rny = rPos.y + dy[i];
